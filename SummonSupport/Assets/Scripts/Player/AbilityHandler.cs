@@ -1,12 +1,16 @@
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class AbilityHandler : MonoBehaviour
 {
     public GameObject prefabMinion;
+    public GameObject[] minions;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        minions = new GameObject[1]; 
         SpawnMinions();
     }
 
@@ -29,11 +33,11 @@ public class AbilityHandler : MonoBehaviour
         }
     }
 
-    private void SpawnMinions()
+    public void SpawnMinions()
     {
         if (prefabMinion != null)
         {
-            Instantiate(prefabMinion, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            minions[0] = Instantiate(prefabMinion, new Vector3(0f, 0f, 0f), Quaternion.identity);
         }
     }
 }
