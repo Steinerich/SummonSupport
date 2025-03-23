@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class QuestHandler : MonoBehaviour
 {
-    private AbilityHandler abilityHandler;
+    private MinionHandler minionHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        abilityHandler = GameObject.FindWithTag("Player").GetComponent<AbilityHandler>();
+        minionHandler = GameObject.FindWithTag("Player").GetComponent<MinionHandler>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (abilityHandler.minions[0].GetComponent<StatHandler>().GetHealth() >= 100)
+        if (minionHandler.settings.minions[0].GetComponent<StatHandler>().GetHealth() >= 100)
         {
             SceneManager.LoadScene("FirstLevel");
         }

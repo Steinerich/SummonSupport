@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632100733240200563}
   - component: {fileID: 7250904922418164393}
+  - component: {fileID: 3145461130273146362}
   - component: {fileID: 303177388825841562}
   - component: {fileID: 8340141053763100221}
   - component: {fileID: 1908301436087624449}
@@ -92,6 +93,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3145461130273146362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247366070773191901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bee96ed6fde8874dab510e69656e40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    prefabMinion: {fileID: 6633276320737436844, guid: 76aec68f719751c49afb3953aef85c87,
+      type: 3}
+    minions: []
+    maxSummons: 0
 --- !u!114 &303177388825841562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,9 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb6ca9dad585524ca92fef8982ba11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabMinion: {fileID: 6633276320737436844, guid: 76aec68f719751c49afb3953aef85c87,
-    type: 3}
-  minions: []
 --- !u!114 &8340141053763100221
 MonoBehaviour:
   m_ObjectHideFlags: 0

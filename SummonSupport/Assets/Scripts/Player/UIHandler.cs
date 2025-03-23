@@ -21,10 +21,10 @@ public class UIHandler : MonoBehaviour
 
     private void UpdateUI()
     {
-        AbilityHandler abilityHandler = GetComponent<AbilityHandler>();
-        if (abilityHandler.minions.Length > 0)
+        MinionHandler minionHandler = GetComponent<MinionHandler>();
+        if (minionHandler.settings.minions.Length > 0)
         {
-            StatHandler statHandler = abilityHandler.minions[0].GetComponent<StatHandler>();
+            StatHandler statHandler = minionHandler.settings.minions[0].GetComponent<StatHandler>();
             int hp = statHandler.GetHealth();
             minionHP.SetText(hp.ToString());
         }
