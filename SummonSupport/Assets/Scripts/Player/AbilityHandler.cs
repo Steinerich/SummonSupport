@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class AbilityHandler : MonoBehaviour
 {
-    
+    MinionHandler minionHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        minionHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<MinionHandler>();
     }
 
     // Update is called once per frame
@@ -23,9 +24,13 @@ public class AbilityHandler : MonoBehaviour
         {
             SmolHeal();
         }
-        if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1))
         {
             BigHeal();
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SummonGreen();
         }
     }
     private RaycastHit2D GetTargetOnClick()
@@ -55,6 +60,10 @@ public class AbilityHandler : MonoBehaviour
     private void BigHeal()
     {
         Heal(20);
+    }
+    private void SummonGreen()
+    {
+        minionHandler.SpawnMinion();
     }
 
     

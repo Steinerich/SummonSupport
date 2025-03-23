@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 public class MinionHandler : MonoBehaviour
@@ -8,28 +9,30 @@ public class MinionHandler : MonoBehaviour
     public struct Settings
     {
         public GameObject prefabMinion;
-        public GameObject[] minions;
+        public List<GameObject> minions;
         public int maxSummons;
+        public GameObject minionBar;
 
     }
     public Settings settings;
     
+    MinionBarHandler minionBarHandler;
 
     void Start()
     {
-        settings.minions = new GameObject[settings.maxSummons];
-        SpawnMinions();
-
+        settings.minions = new List<GameObject>();
     }
     void Update()
     {
         
     }
-    private void SpawnMinions()
+    public void SpawnMinion()
     {
-        if (settings.prefabMinion != null)
+        if (settings.prefabMinion != null && settings.minions.Count < settings.maxSummons)
         {
-            settings.minions[0] = Instantiate(settings.prefabMinion, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            MinionBarHandler minionBarHandler = settings.minionBar.GetComponent<MinionBarHandler>();    
+            settings.minions.Add(Instantiate(settings.prefabMinion, new Vector3(0f, 0f, 0f), Quaternion.identity));
+            minionBarHandler.AddMinion();
         }
     }
 }
