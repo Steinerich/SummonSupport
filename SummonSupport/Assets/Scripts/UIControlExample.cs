@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,7 @@ public class UIControlExample : MonoBehaviour
     private VisualElement uiRoot;
     private ProgressBar healthBar;
     private ProgressBar powerBar;
+    private Dictionary<string, Button> abilityButtons;
 
     void Start()
     {
