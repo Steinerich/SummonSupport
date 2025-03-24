@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 211213313}
+  alchemyBench: {fileID: 1667861421}
   speed: 5
   dashBoost: 10
   dashCoolDown: 1
@@ -880,6 +881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 1708952193}
+  playerUsingUI:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1708952192
 GameObject:
   m_ObjectHideFlags: 0
