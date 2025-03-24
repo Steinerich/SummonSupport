@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     public Camera mainCamera;
     [SerializeField] private PlayerInputActions inputActions;
+    [SerializeField] private AlchemyBenchUI alchemyBench;
     private Vector2 lookInput;
     [SerializeField] float speed = 5f;
     [SerializeField] float dashBoost = 10f;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     #region Enable and Disable event subscriptions
     private void OnEnable()
     {
+        alchemyBench.playerUsingUI.AddListener(ToggleLockedInUI);
         inputActions.Player.Enable();
 
         inputActions.Player.Move.performed += OnMove;
