@@ -1,13 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DungeonMaster : MonoBehaviour
 {
 
-    public static SceneHandler sceneHandler;
-    public static EnemySpawner enemySpawner;
-    public static QuestHandler questHandler;
-    public static SummonCrafting summonsCrafting;
-    // public static StatsHandler playerStats;
+    private static SceneHandler sceneHandler;
+    private static EnemySpawner enemySpawner;
+    private static QuestHandler questHandler;
+    private static SummonCrafting summonsCrafting;
+    // private static StatsHandler playerStats;
     void Start()
     {
 
