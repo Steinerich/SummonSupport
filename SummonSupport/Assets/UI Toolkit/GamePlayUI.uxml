@@ -1,8 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="MainUI" style="flex-grow: 1; bottom: 0; right: 0; top: 0; left: 0;">
-        <ui:ProgressBar value="90" title="Health" name="HealthBar" style="width: 30%; height: 5%; -unity-background-image-tint-color: rgb(255, 255, 255); color: rgb(155, 0, 0); bottom: 0; position: absolute;" />
-        <ui:ProgressBar value="90" title="Power" name="PowerBar" style="width: 30%; height: 5%; color: rgb(0, 10, 166); bottom: 7%; top: auto; right: auto; position: absolute;" />
-        <ui:VisualElement name="ResourceBars" style="flex-grow: 1; width: 30%; height: 15%; top: auto; bottom: 0; left: 0%; position: absolute;" />
         <ui:VisualElement name="AbilitySlotsL" style="flex-grow: 1; width: 15%; height: 15%; right: 0%; position: absolute; top: auto; bottom: 0%; flex-wrap: wrap; left: 32%;">
             <ui:Button text="1" name="Ability1" style="width: 30%; height: 30%;" />
             <ui:Button text="2" name="Ability2" style="width: 30%; height: 30%;" />
@@ -21,6 +18,10 @@
         </ui:VisualElement>
         <ui:VisualElement name="MinionBarSlots" style="flex-grow: 1; bottom: 0; right: 0%; width: 25%; height: 20%; position: absolute; flex-wrap: wrap;">
             <ui:ProgressBar value="100" title="MinionBar" name="MinionBar" style="align-content: flex-end; justify-content: space-between; align-items: flex-start; white-space: pre-wrap;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ResourceBars" style="flex-grow: 1; width: 30%; height: 15%; top: auto; bottom: 0; left: 0%; position: absolute; flex-wrap: wrap; align-items: stretch; align-self: stretch; flex-direction: column;">
+            <ui:ProgressBar value="90" title="Health" name="HealthBar" style="width: 100%; height: 30%; -unity-background-image-tint-color: rgb(255, 255, 255); color: rgb(155, 0, 0); bottom: 0%; position: absolute; left: 0%;" />
+            <ui:ProgressBar value="90" title="Power" name="PowerBar" style="width: 100%; height: 30%; -unity-background-image-tint-color: rgb(255, 255, 255); color: rgb(155, 0, 0); bottom: auto; position: absolute; left: 0%; top: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
