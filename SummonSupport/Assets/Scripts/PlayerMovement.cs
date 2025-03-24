@@ -10,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInputActions inputActions;
     private Vector2 lookInput;
     [SerializeField] float speed = 5f;
-    [SerializeField] float dashBoost = 5f;
+    [SerializeField] float dashBoost = 10f;
     [SerializeField] float dashCoolDown = 1f;
-    [SerializeField] float dashDuration = .5f;
+    [SerializeField] float dashDuration = .1f;
 
     private bool dashing = false;
     private bool canDash = true;
+    private bool lockedInUI = false;
 
     #endregion
 
@@ -54,9 +55,13 @@ public class PlayerMovement : MonoBehaviour
     #region Dash logic
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (canDash) dashing = true;
-        Invoke("ReturnToNormalSpeed", dashDuration);
-        Invoke("ReadyDash", dashCoolDown);
+        if (canDash)
+        {
+            canDash = false;
+            dashing = true;
+            Invoke("ReturnToNormalSpeed", dashDuration);
+            Invoke("ReadyDash", dashCoolDown);
+        }
     }
 
     private void ReadyDash()
@@ -99,13 +104,22 @@ public class PlayerMovement : MonoBehaviour
         return transform.rotation;
     }
     #endregion
+    #region using UI
+    public void ToggleLockedInUI()
+    {
+        if (!lockedInUI) lockedInUI = true;
+        else lockedInUI = false;
+
+    }
+    #endregion
 
     private void Update()
     {
-        HandleMove();
+        if (!lockedInUI)
+        {
+            HandleMove();
 
-        HandleLook();
-
-
+            HandleLook();
+        }
     }
 }
