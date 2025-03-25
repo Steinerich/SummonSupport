@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8dda93f4a86625a43904595743914934
+guid: a51f75a09c0084a48a8a899bf952c85e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2798313856218936834
-    second: p_GreenSprayerBackpack_0
+      213: -4515792881579004052
+    second: Field gras4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: p_GreenSprayerBackpack_0
+      name: Field gras4_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 44
-        height: 48
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 206bbf940ab95d620800000000000000
-      internalID: 2798313856218936834
+      spriteID: c6fee36cc4ea451c0800000000000000
+      internalID: -4515792881579004052
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      p_GreenSprayerBackpack_0: 2798313856218936834
+      Field gras4_0: -4515792881579004052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
