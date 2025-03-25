@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 namespace Alchemy
 {
     public static class AlchemyInventory
@@ -7,8 +9,11 @@ namespace Alchemy
         #region Class variables
         public static Dictionary<AlchemyLoot, int> ingredients { get; private set; } = new Dictionary<AlchemyLoot, int>
         {
+            { AlchemyLoot.WretchedOrgans, 2 },
+            { AlchemyLoot.FunctionalOrgans, 2 },
+            { AlchemyLoot.HulkingOrgans, 2 },
             { AlchemyLoot.BrokenCores, 2 },
-            { AlchemyLoot.WorkingCore, 0 },
+            { AlchemyLoot.WorkingCore, 1 },
             { AlchemyLoot.PowerfulCore, 0 },
             { AlchemyLoot.HulkingCore, 0 },
             { AlchemyLoot.FaintEther, 0 },
@@ -34,6 +39,9 @@ namespace Alchemy
                 { Elements.Light, 0 },
                 { Elements.Psychic, 0 }
             };
+
+        public static List<AlchemyTools> KnownTools = new List<AlchemyTools>();
+
         #endregion
 
         #region Set Dict values
@@ -57,10 +65,27 @@ namespace Alchemy
         }
         #endregion
 
+        #region Calculate Alchemy Results
+
+        public static Dictionary<string, int> CalculateCraftingResults(Dictionary<AlchemyLoot, int> combinedIngredients)
+        {
+            List<string> theKeys = combinedIngredients.ToDictionary(kvp => kvp.Key.ToString(), kvp => kvp.Value).Keys.ToList();
+
+            return new Dictionary<string, int>(); // this will be changed to contain a function for calculating minion  stats as a result of combined ingredients. until LivingBeing Stats scripts and the children classes minion stats and enemy stats are made, a string return and dummy function are a thorn in our souls <3
+        }
+
+
+        #endregion
     }
+
+    //public enum 
+
 
     public enum AlchemyLoot
     {
+        WretchedOrgans,
+        FunctionalOrgans,
+        HulkingOrgans,
         BrokenCores,
         WorkingCore,
         PowerfulCore,

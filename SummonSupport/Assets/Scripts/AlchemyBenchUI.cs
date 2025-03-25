@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using Alchemy;
 
 public class AlchemyBenchUI : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class AlchemyBenchUI : MonoBehaviour
     private VisualElement craftandUpgrade;
     private Label instructions;
     public UnityEvent playerUsingUI;
+    private Dictionary<AlchemyLoot, int> selectedIngredients = new Dictionary<AlchemyLoot, int>();
 
 
 
@@ -37,18 +40,20 @@ public class AlchemyBenchUI : MonoBehaviour
             interactWindow.style.display = DisplayStyle.Flex;
             interactLabel.text = "Press Tab to Interact";
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Debug.Log("Tab key pressed!");
-            PlayerUsingUI();
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    Debug.Log("Tab key pressed!");
+        //    InteractWithWorkBench();
+        //    PlayerUsingUI();
+        //}
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.Tab))
 
         {
             InteractWithWorkBench();
+            PlayerUsingUI();
         }
         //else Debug.Log("player is not pressing tab");
     }
@@ -89,6 +94,18 @@ public class AlchemyBenchUI : MonoBehaviour
     private void ShowCraftingOptions()
     {
         instructions.text = "Combine Cores, Ether and Body Parts to make mions.";
+        foreach (KeyValuePair<AlchemyLoot, int> kvp in AlchemyInventory.ingredients)
+        {
+            if (kvp.Value != 0)
+            {
+                Button ingredientButton = new Button { text = $"{kvp.Key} : {kvp.Value}" }; // Set name of buttons
+                craftandUpgrade.Add(ingredientButton); // add button to container
+                ingredientButton.style.width = Length.Percent(15); // limit size of payment
+                ingredientButton.style.height = Length.Percent(5);
+                ingredientButton.RegisterCallback<ClickEvent>(e => AddIngredientToSelection(kvp.Key)); // add event for button
+
+            }
+        }
     }
     private void ShowUpgradeOptions()
     {
@@ -97,6 +114,16 @@ public class AlchemyBenchUI : MonoBehaviour
     private void ShowRecycleOptions()
     {
         instructions.text = "Which Minion would you like to recycle for components?";
+    }
+    private void AddIngredientToSelection(AlchemyLoot ingredient)
+    {
+        if (selectedIngredients.TryGetValue(ingredient, out int amountSelected)) // if the key exists
+        {
+            if (amountSelected <= AlchemyInventory.ingredients[ingredient]) //if not already equal or more have been selected
+            {
+                selectedIngredients[ingredient]++;
+            }
+        }
     }
 
     //Button backButton = new Button { text = "Back" };

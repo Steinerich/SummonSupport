@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashing = false;
     private bool canDash = true;
     private bool lockedInUI = false;
+    private bool lockToggleable = true;
 
     #endregion
 
@@ -110,9 +111,21 @@ public class PlayerMovement : MonoBehaviour
     #region using UI
     public void ToggleLockedInUI()
     {
-        if (!lockedInUI) lockedInUI = true;
-        else lockedInUI = false;
+        if (lockToggleable)
+        {
+            if (!lockedInUI)
+            {
+                lockToggleable = false;
+                Invoke("AllowLockToggle", 1f);
+                lockedInUI = true;
+            }
+            else lockedInUI = false;
+        }
 
+    }
+    private void AllowLockToggle()
+    {
+        lockToggleable = true;
     }
     #endregion
 
